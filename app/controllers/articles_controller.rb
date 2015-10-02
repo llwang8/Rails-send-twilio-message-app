@@ -4,7 +4,8 @@ class ArticlesController < ApplicationController
   end
   
   def create
-    phone_num = params[:article]
+    @article = Article.new(params[:article])
+    phone_num = @article["phone_number"]
 
     account_sid = 'ACa5318e7db84ed99e5a2bbb26f999de8e'
     auth_token = '176b516a5cf1090f99f24d9afaa47331'
