@@ -1,0 +1,15 @@
+
+<%= form_for :article url: articles_path do |f| %>
+  <h1>
+    Enter your cell phone number please <br>and be suprised by a message to your phone: 
+  </h1>
+  <P>
+    <%= f.label :phone_number %>
+  </P>
+  <p>
+    <%= f.text_field :phone_number %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
