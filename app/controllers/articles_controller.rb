@@ -1,11 +1,12 @@
 class ArticlesController < ApplicationController
+  #validates :phone_number, presence: true 
   def new
-    
+   #@article=Article.new(article_params)
   end
   
   def create
     @article = Article.new(params[:article])
-    phone_num = @article["phone_number"]
+    phone_num = params[:article][:phone_number]
 
     account_sid = 'ACa5318e7db84ed99e5a2bbb26f999de8e'
     auth_token = '176b516a5cf1090f99f24d9afaa47331'
@@ -17,10 +18,6 @@ class ArticlesController < ApplicationController
     to = to.gsub("(", "")
     to = to.gsub(")", "")
     to = to.gsub("-", "")
-    to = to.gsub("/", "")
-    to = to.gsub("*", "")
-    to = to.gsub("%", "")
-    to = to.gsub(/\s+/, "")
     to = to.to_i
 
     @client.account.messages.create(
@@ -29,5 +26,9 @@ class ArticlesController < ApplicationController
     :body => 'Hey, Monkey party at 6PM. Bring Bananas!'
     )
   end
-  
+    
+  private
+  def article_params
+    params.require(:article).permit(:phone_number)
+  end
 end
