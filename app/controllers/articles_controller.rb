@@ -33,7 +33,7 @@ class ArticlesController < ApplicationController
       )
       redirect_to @article
     else
-      render "/new"
+      render :new
     end
     
   end
