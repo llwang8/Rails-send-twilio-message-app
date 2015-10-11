@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :articles
   root 'articles#new'
   
-  get 'welcome#index'
+  get 'welcome/index'
 
 
   #root :controller => 'articles', :action => '/new' 
