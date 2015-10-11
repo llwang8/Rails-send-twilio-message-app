@@ -1,3 +1,4 @@
 class Article < ActiveRecord::Base
-    validates :phone_number, presence: true, numericality: { only_integer: true }, length: { is: 10 }
+    validates :phone_number, presence: true, numericality: { only_integer: true }, length: { is: 10, wrong_length:"Must be 10-digit!" }
+    
 end
