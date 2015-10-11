@@ -1,9 +1,10 @@
 <%= form_for @article, url: articles_path do |f| %>
   <h1>
-    Enter your cell phone number please and be suprised by a message to your phone: 
+    Please enter your 10 digits cell phone number and be suprised by a message to your phone: 
   </h1>
   <%= f.label :phone_number %>
   <%= f.text_field :phone_number, required: true %>
   <%= f.submit "Submit" %>
 <% end %>
+
 
